@@ -1127,10 +1127,194 @@
             .theme-switcher { right: 10px; }
         }
 
+        /* ===== VOICE SWITCHER ===== */
+        .voice-switcher {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 14px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            max-height: 60vh;
+            overflow-y: auto;
+            transition: all 0.3s;
+        }
+        .voice-label {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 2px;
+        }
+        .voice-btn {
+            padding: 7px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--card-border);
+            background: transparent;
+            color: var(--text-muted);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .voice-btn:hover { border-color: rgba(var(--accent-rgb), 0.4); color: var(--text); }
+        .voice-btn.active {
+            background: rgba(var(--accent-rgb), 0.15);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        .voice-btn[role="radio"] { outline: none; }
+        .voice-btn[role="radio"]:focus-visible { box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.3); }
+
+        @media (max-width: 768px) {
+            .voice-switcher {
+                left: 10px;
+                bottom: 10px;
+                padding: 10px;
+                max-width: 140px;
+            }
+            .voice-btn { font-size: 0.65rem; padding: 5px 10px; }
+        }
+
+        /* ===== DOWNPOUR BUTTON ===== */
+        .downpour-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: 2px solid rgba(var(--accent-rgb), 0.3);
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            color: var(--text-muted);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s;
+        }
+        .downpour-btn:hover {
+            border-color: var(--accent);
+            color: var(--heading);
+            transform: scale(1.05);
+        }
+        .downpour-btn.active {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-color: var(--accent);
+            color: #fff;
+            box-shadow: 0 0 30px var(--accent-glow), 0 0 60px rgba(var(--accent-rgb), 0.15);
+            animation: downpourPulse 2s ease-in-out infinite;
+        }
+        @keyframes downpourPulse {
+            0%, 100% { box-shadow: 0 0 30px var(--accent-glow), 0 0 60px rgba(var(--accent-rgb), 0.15); }
+            50% { box-shadow: 0 0 50px var(--accent-glow), 0 0 100px rgba(var(--accent-rgb), 0.25); }
+        }
+        .downpour-btn svg { transition: transform 0.3s; }
+        .downpour-btn.active svg { animation: downpourSpin 3s linear infinite; }
+        @keyframes downpourSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .downpour-btn { right: 10px; bottom: 10px; padding: 10px 14px; font-size: 0.65rem; }
+        }
+
+        /* ===== RAIN CANVAS (DOWNPOUR) ===== */
+        #rainCanvas {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        #rainCanvas.active { opacity: 1; }
+
+        /* ===== LIGHTNING FLASH ===== */
+        .lightning-flash {
+            position: fixed;
+            inset: 0;
+            background: rgba(255,255,255,0.15);
+            pointer-events: none;
+            z-index: 9990;
+            opacity: 0;
+            transition: opacity 0.05s;
+        }
+        .lightning-flash.flash { opacity: 1; }
+
+        /* ===== DOWNPOUR ACTIVE STATES ===== */
+        body.downpour-active .service-card:hover,
+        body.downpour-active .why-card:hover,
+        body.downpour-active .testimonial-card:hover {
+            box-shadow: 0 16px 60px rgba(var(--accent-rgb), 0.25);
+            transform: translateY(-10px) scale(1.02);
+        }
+        body.downpour-active .hero-shimmer {
+            animation: shimmer 1.5s linear infinite, heroGlow 2s ease-in-out infinite;
+        }
+        @keyframes heroGlow {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(var(--accent-rgb), 0.3)); }
+            50% { filter: drop-shadow(0 0 30px rgba(var(--accent-rgb), 0.6)); }
+        }
+        body.downpour-active .cursor-glow {
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, rgba(var(--particle-color), 0.15) 0%, transparent 70%);
+        }
+        body.downpour-active .service-icon {
+            animation: iconPulse 2s ease-in-out infinite;
+        }
+        @keyframes iconPulse {
+            0%, 100% { box-shadow: 0 0 0 rgba(var(--accent-rgb), 0); }
+            50% { box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.3); }
+        }
+        body.downpour-active .stat-item h3 {
+            text-shadow: 0 0 20px rgba(var(--accent-rgb), 0.4);
+        }
+        body.downpour-active .section-divider {
+            height: 2px;
+            opacity: 0.6;
+        }
+        body.downpour-active .step-marker {
+            animation: stepPulse 1.5s ease-in-out infinite;
+        }
+        @keyframes stepPulse {
+            0%, 100% { box-shadow: 0 0 0 rgba(var(--accent-rgb), 0); }
+            50% { box-shadow: 0 0 15px rgba(var(--accent-rgb), 0.4); }
+        }
+
+        /* Voice crossfade */
+        .voice-fade {
+            transition: opacity 0.3s ease;
+        }
+        .voice-fade.fading {
+            opacity: 0;
+        }
+
         /* ===== PRINT ===== */
         @media print {
             .navbar, .theme-switcher, .cursor-glow, #particles, .loader,
-            .scroll-progress, .hamburger, .mobile-menu, .cta-section { display: none !important; }
+            .scroll-progress, .hamburger, .mobile-menu, .cta-section,
+            .voice-switcher, .downpour-btn, #rainCanvas, .lightning-flash { display: none !important; }
             body { background: #fff; color: #000; }
             section { padding: 30px 0; }
             .hero { min-height: auto; }
@@ -1165,6 +1349,30 @@
         <div class="theme-dot" data-theme="verdant" role="radio" aria-checked="false" aria-label="Verdant theme" tabindex="0"></div>
         <div class="theme-dot" data-theme="dew" role="radio" aria-checked="false" aria-label="Morning Dew theme" tabindex="0"></div>
     </div>
+
+    <!-- Rain Canvas (DOWNPOUR) -->
+    <canvas id="rainCanvas"></canvas>
+
+    <!-- Lightning Flash -->
+    <div class="lightning-flash" id="lightningFlash"></div>
+
+    <!-- Voice Switcher -->
+    <div class="voice-switcher" role="radiogroup" aria-label="Copy voice selector">
+        <span class="voice-label">Voice</span>
+        <button class="voice-btn active" data-voice="professional" role="radio" aria-checked="true" tabindex="0">Professional</button>
+        <button class="voice-btn" data-voice="neighbor" role="radio" aria-checked="false" tabindex="0">Neighbor</button>
+        <button class="voice-btn" data-voice="engineer" role="radio" aria-checked="false" tabindex="0">Engineer</button>
+        <button class="voice-btn" data-voice="poet" role="radio" aria-checked="false" tabindex="0">Poet</button>
+        <button class="voice-btn" data-voice="closer" role="radio" aria-checked="false" tabindex="0">Closer</button>
+        <button class="voice-btn" data-voice="oldtimer" role="radio" aria-checked="false" tabindex="0">Old Timer</button>
+        <button class="voice-btn" data-voice="eco" role="radio" aria-checked="false" tabindex="0">Eco Warrior</button>
+    </div>
+
+    <!-- DOWNPOUR Button -->
+    <button class="downpour-btn" id="downpourBtn" aria-label="Toggle DOWNPOUR animation mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 13V21"/><path d="M8 13V21"/><path d="M12 15V23"/><path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25"/></svg>
+        DOWNPOUR
+    </button>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar" aria-label="Main navigation">
@@ -1209,8 +1417,8 @@
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
                         Novi, Michigan &mdash; Oakland County
                     </div>
-                    <h1><span class="hero-shimmer">Programming the Rain</span> for Your Perfect Landscape</h1>
-                    <p>Expert irrigation design, sprinkler installation, landscape lighting, and drainage solutions. We engineer water systems that keep your property lush, efficient, and beautiful &mdash; rain or shine.</p>
+                    <h1><span class="hero-shimmer" data-voice-key="hero-title">Programming the Rain</span> <span data-voice-key="hero-title-suffix">for Your Perfect Landscape</span></h1>
+                    <p class="voice-fade" data-voice-key="hero-desc">Expert irrigation design, sprinkler installation, landscape lighting, and drainage solutions. We engineer water systems that keep your property lush, efficient, and beautiful &mdash; rain or shine.</p>
                     <div class="hero-actions">
                         <a href="#contact" class="btn btn-primary magnetic-btn">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -1256,8 +1464,8 @@
             <div class="container">
                 <div class="text-center reveal" style="text-align:center;">
                     <div class="section-label">What We Do</div>
-                    <h2 class="section-title">Comprehensive Water &amp; Landscape Solutions</h2>
-                    <p class="section-subtitle">From underground irrigation to landscape illumination &mdash; we handle every system that keeps your property thriving.</p>
+                    <h2 class="section-title voice-fade" data-voice-key="services-title">Comprehensive Water &amp; Landscape Solutions</h2>
+                    <p class="section-subtitle voice-fade" data-voice-key="services-subtitle">From underground irrigation to landscape illumination &mdash; we handle every system that keeps your property thriving.</p>
                 </div>
                 <div class="services-grid">
                     <!-- Sprinkler Systems -->
@@ -1267,8 +1475,8 @@
                                 <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
                             </svg>
                         </div>
-                        <h3>Sprinkler Systems</h3>
-                        <p>Custom-designed automatic sprinkler systems with Hunter and Rain Bird heads. Precision coverage zones, smart controllers, and efficient water distribution for every inch of your lawn.</p>
+                        <h3 class="voice-fade" data-voice-key="svc1-title">Sprinkler Systems</h3>
+                        <p class="voice-fade" data-voice-key="svc1-desc">Custom-designed automatic sprinkler systems with Hunter and Rain Bird heads. Precision coverage zones, smart controllers, and efficient water distribution for every inch of your lawn.</p>
                     </div>
                     <!-- Irrigation Design -->
                     <div class="service-card reveal">
@@ -1277,8 +1485,8 @@
                                 <circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M16.36 16.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M16.36 7.64l1.42-1.42"/>
                             </svg>
                         </div>
-                        <h3>Irrigation Design</h3>
-                        <p>Engineered irrigation layouts tailored to your property&rsquo;s soil, slope, and plant needs. Drip systems, rotary heads, and zone mapping for maximum water efficiency.</p>
+                        <h3 class="voice-fade" data-voice-key="svc2-title">Irrigation Design</h3>
+                        <p class="voice-fade" data-voice-key="svc2-desc">Engineered irrigation layouts tailored to your property&rsquo;s soil, slope, and plant needs. Drip systems, rotary heads, and zone mapping for maximum water efficiency.</p>
                     </div>
                     <!-- Drainage Solutions -->
                     <div class="service-card reveal">
@@ -1287,8 +1495,8 @@
                                 <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
                             </svg>
                         </div>
-                        <h3>Drainage Solutions</h3>
-                        <p>French drains, channel drains, dry wells, and grading solutions that eliminate standing water, protect foundations, and prevent landscape erosion.</p>
+                        <h3 class="voice-fade" data-voice-key="svc3-title">Drainage Solutions</h3>
+                        <p class="voice-fade" data-voice-key="svc3-desc">French drains, channel drains, dry wells, and grading solutions that eliminate standing water, protect foundations, and prevent landscape erosion.</p>
                     </div>
                     <!-- Landscape Lighting -->
                     <div class="service-card reveal">
@@ -1297,8 +1505,8 @@
                                 <line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/>
                             </svg>
                         </div>
-                        <h3>Landscape Lighting</h3>
-                        <p>Low-voltage LED path lights, accent uplights, and architectural illumination. Transform your property after dark with energy-efficient outdoor lighting systems.</p>
+                        <h3 class="voice-fade" data-voice-key="svc4-title">Landscape Lighting</h3>
+                        <p class="voice-fade" data-voice-key="svc4-desc">Low-voltage LED path lights, accent uplights, and architectural illumination. Transform your property after dark with energy-efficient outdoor lighting systems.</p>
                     </div>
                     <!-- Winterization -->
                     <div class="service-card reveal">
@@ -1307,8 +1515,8 @@
                                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                             </svg>
                         </div>
-                        <h3>Winterization &amp; Spring Start-Up</h3>
-                        <p>Professional compressed-air blowouts to protect your investment from Michigan winters. Spring activation, head adjustment, and full system diagnostics included.</p>
+                        <h3 class="voice-fade" data-voice-key="svc5-title">Winterization &amp; Spring Start-Up</h3>
+                        <p class="voice-fade" data-voice-key="svc5-desc">Professional compressed-air blowouts to protect your investment from Michigan winters. Spring activation, head adjustment, and full system diagnostics included.</p>
                     </div>
                     <!-- Maintenance & Repair -->
                     <div class="service-card reveal">
@@ -1317,8 +1525,8 @@
                                 <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
                             </svg>
                         </div>
-                        <h3>Maintenance &amp; Repair</h3>
-                        <p>Broken heads, leaking valves, controller issues &mdash; we diagnose and fix it fast. Scheduled maintenance plans keep your system running at peak performance year-round.</p>
+                        <h3 class="voice-fade" data-voice-key="svc6-title">Maintenance &amp; Repair</h3>
+                        <p class="voice-fade" data-voice-key="svc6-desc">Broken heads, leaking valves, controller issues &mdash; we diagnose and fix it fast. Scheduled maintenance plans keep your system running at peak performance year-round.</p>
                     </div>
                 </div>
             </div>
@@ -1343,9 +1551,9 @@
                     </div>
                     <div class="about-text reveal">
                         <div class="section-label">About JRM</div>
-                        <h2 class="section-title">We Don&rsquo;t Just Install Sprinklers &mdash; We Engineer Rain</h2>
-                        <p>JRM Programming the Rain has been the go-to irrigation authority in Oakland County for over two decades. Based in Novi, Michigan, we combine deep technical knowledge with hands-on craftsmanship to deliver water management systems that actually work.</p>
-                        <p>Every property is different. Every soil type, every grade, every sun exposure pattern demands a custom solution. That&rsquo;s what we deliver &mdash; not cookie-cutter installs, but precision-engineered systems built for your land.</p>
+                        <h2 class="section-title voice-fade" data-voice-key="about-title">We Don&rsquo;t Just Install Sprinklers &mdash; We Engineer Rain</h2>
+                        <p class="voice-fade" data-voice-key="about-p1">JRM Programming the Rain has been the go-to irrigation authority in Oakland County for over two decades. Based in Novi, Michigan, we combine deep technical knowledge with hands-on craftsmanship to deliver water management systems that actually work.</p>
+                        <p class="voice-fade" data-voice-key="about-p2">Every property is different. Every soil type, every grade, every sun exposure pattern demands a custom solution. That&rsquo;s what we deliver &mdash; not cookie-cutter installs, but precision-engineered systems built for your land.</p>
                         <div class="about-features">
                             <div class="about-feature">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -1376,36 +1584,36 @@
             <div class="container">
                 <div class="text-center reveal" style="text-align:center;">
                     <div class="section-label">Why JRM</div>
-                    <h2 class="section-title">What Sets Us Apart</h2>
-                    <p class="section-subtitle">In a market full of fly-by-night lawn guys, here&rsquo;s why Oakland County trusts JRM.</p>
+                    <h2 class="section-title voice-fade" data-voice-key="why-title">What Sets Us Apart</h2>
+                    <p class="section-subtitle voice-fade" data-voice-key="why-subtitle">In a market full of fly-by-night lawn guys, here&rsquo;s why Oakland County trusts JRM.</p>
                 </div>
                 <div class="why-grid">
                     <div class="why-card reveal">
                         <div class="why-number">01</div>
                         <div>
-                            <h3>Custom Engineering, Not Templates</h3>
-                            <p>We survey your property, test your soil, map your grades. Every system is designed from scratch &mdash; no one-size-fits-all kits from a big-box store.</p>
+                            <h3 class="voice-fade" data-voice-key="why1-title">Custom Engineering, Not Templates</h3>
+                            <p class="voice-fade" data-voice-key="why1-desc">We survey your property, test your soil, map your grades. Every system is designed from scratch &mdash; no one-size-fits-all kits from a big-box store.</p>
                         </div>
                     </div>
                     <div class="why-card reveal">
                         <div class="why-number">02</div>
                         <div>
-                            <h3>We Answer the Phone</h3>
-                            <p>Broken sprinkler head flooding your driveway at 7AM? We pick up. Fast response, real people, no phone trees or week-long wait times.</p>
+                            <h3 class="voice-fade" data-voice-key="why2-title">We Answer the Phone</h3>
+                            <p class="voice-fade" data-voice-key="why2-desc">Broken sprinkler head flooding your driveway at 7AM? We pick up. Fast response, real people, no phone trees or week-long wait times.</p>
                         </div>
                     </div>
                     <div class="why-card reveal">
                         <div class="why-number">03</div>
                         <div>
-                            <h3>Michigan Winter Expertise</h3>
-                            <p>We know what freeze-thaw cycles do to pipes. Our winterization process and spring start-ups are dialed in for Southeast Michigan&rsquo;s brutal climate.</p>
+                            <h3 class="voice-fade" data-voice-key="why3-title">Michigan Winter Expertise</h3>
+                            <p class="voice-fade" data-voice-key="why3-desc">We know what freeze-thaw cycles do to pipes. Our winterization process and spring start-ups are dialed in for Southeast Michigan&rsquo;s brutal climate.</p>
                         </div>
                     </div>
                     <div class="why-card reveal">
                         <div class="why-number">04</div>
                         <div>
-                            <h3>Transparent Pricing</h3>
-                            <p>Detailed written estimates before any work begins. No surprise charges, no scope creep. You know exactly what you&rsquo;re paying for and why.</p>
+                            <h3 class="voice-fade" data-voice-key="why4-title">Transparent Pricing</h3>
+                            <p class="voice-fade" data-voice-key="why4-desc">Detailed written estimates before any work begins. No surprise charges, no scope creep. You know exactly what you&rsquo;re paying for and why.</p>
                         </div>
                     </div>
                 </div>
@@ -1611,8 +1819,8 @@
         <!-- CTA -->
         <section class="cta-section">
             <div class="container reveal">
-                <h2>Ready to Program Your Rain?</h2>
-                <p>Get a free, no-obligation estimate for your irrigation, lighting, or drainage project. One call is all it takes.</p>
+                <h2 class="voice-fade" data-voice-key="cta-title">Ready to Program Your Rain?</h2>
+                <p class="voice-fade" data-voice-key="cta-desc">Get a free, no-obligation estimate for your irrigation, lighting, or drainage project. One call is all it takes.</p>
                 <a href="tel:2489464696" class="btn magnetic-btn">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     Call (248) 946-4696
@@ -2023,6 +2231,440 @@
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
+        });
+
+        // ===== VOICE SYSTEM =====
+        const voices = {
+            professional: {
+                'hero-title': 'Programming the Rain',
+                'hero-title-suffix': 'for Your Perfect Landscape',
+                'hero-desc': 'Expert irrigation design, sprinkler installation, landscape lighting, and drainage solutions. We engineer water systems that keep your property lush, efficient, and beautiful \u2014 rain or shine.',
+                'services-title': 'Comprehensive Water & Landscape Solutions',
+                'services-subtitle': 'From underground irrigation to landscape illumination \u2014 we handle every system that keeps your property thriving.',
+                'svc1-title': 'Sprinkler Systems',
+                'svc1-desc': 'Custom-designed automatic sprinkler systems with Hunter and Rain Bird heads. Precision coverage zones, smart controllers, and efficient water distribution for every inch of your lawn.',
+                'svc2-title': 'Irrigation Design',
+                'svc2-desc': 'Engineered irrigation layouts tailored to your property\u2019s soil, slope, and plant needs. Drip systems, rotary heads, and zone mapping for maximum water efficiency.',
+                'svc3-title': 'Drainage Solutions',
+                'svc3-desc': 'French drains, channel drains, dry wells, and grading solutions that eliminate standing water, protect foundations, and prevent landscape erosion.',
+                'svc4-title': 'Landscape Lighting',
+                'svc4-desc': 'Low-voltage LED path lights, accent uplights, and architectural illumination. Transform your property after dark with energy-efficient outdoor lighting systems.',
+                'svc5-title': 'Winterization & Spring Start-Up',
+                'svc5-desc': 'Professional compressed-air blowouts to protect your investment from Michigan winters. Spring activation, head adjustment, and full system diagnostics included.',
+                'svc6-title': 'Maintenance & Repair',
+                'svc6-desc': 'Broken heads, leaking valves, controller issues \u2014 we diagnose and fix it fast. Scheduled maintenance plans keep your system running at peak performance year-round.',
+                'about-title': 'We Don\u2019t Just Install Sprinklers \u2014 We Engineer Rain',
+                'about-p1': 'JRM Programming the Rain has been the go-to irrigation authority in Oakland County for over two decades. Based in Novi, Michigan, we combine deep technical knowledge with hands-on craftsmanship to deliver water management systems that actually work.',
+                'about-p2': 'Every property is different. Every soil type, every grade, every sun exposure pattern demands a custom solution. That\u2019s what we deliver \u2014 not cookie-cutter installs, but precision-engineered systems built for your land.',
+                'why-title': 'What Sets Us Apart',
+                'why-subtitle': 'In a market full of fly-by-night lawn guys, here\u2019s why Oakland County trusts JRM.',
+                'why1-title': 'Custom Engineering, Not Templates',
+                'why1-desc': 'We survey your property, test your soil, map your grades. Every system is designed from scratch \u2014 no one-size-fits-all kits from a big-box store.',
+                'why2-title': 'We Answer the Phone',
+                'why2-desc': 'Broken sprinkler head flooding your driveway at 7AM? We pick up. Fast response, real people, no phone trees or week-long wait times.',
+                'why3-title': 'Michigan Winter Expertise',
+                'why3-desc': 'We know what freeze-thaw cycles do to pipes. Our winterization process and spring start-ups are dialed in for Southeast Michigan\u2019s brutal climate.',
+                'why4-title': 'Transparent Pricing',
+                'why4-desc': 'Detailed written estimates before any work begins. No surprise charges, no scope creep. You know exactly what you\u2019re paying for and why.',
+                'cta-title': 'Ready to Program Your Rain?',
+                'cta-desc': 'Get a free, no-obligation estimate for your irrigation, lighting, or drainage project. One call is all it takes.'
+            },
+            neighbor: {
+                'hero-title': 'Your Lawn\'s Best Friend',
+                'hero-title-suffix': 'Right Here in Novi',
+                'hero-desc': 'Hey, we\'re the folks your neighbors keep recommending. Sprinklers, lighting, drainage \u2014 we do it all and we do it right. No hassle, no runaround. Just a great lawn.',
+                'services-title': 'Everything Your Yard Needs',
+                'services-subtitle': 'Think of us as the one call that handles it all \u2014 from the sprinklers to the lights out back.',
+                'svc1-title': 'Sprinkler Systems',
+                'svc1-desc': 'We\'ll set you up with a sprinkler system that actually covers your whole yard \u2014 no dry patches, no flooded corners. Just green grass everywhere.',
+                'svc2-title': 'Irrigation Design',
+                'svc2-desc': 'We walk your yard, figure out what needs water and how much, then design a system that makes sense for YOUR property. Not some generic plan.',
+                'svc3-title': 'Drainage Solutions',
+                'svc3-desc': 'Got that swampy corner that turns into a pond every time it rains? Yeah, we fix that. French drains, grading, whatever it takes.',
+                'svc4-title': 'Landscape Lighting',
+                'svc4-desc': 'Those little path lights and uplights that make your house look amazing at night? That\'s us. Your neighbors are gonna be jealous.',
+                'svc5-title': 'Winterization & Spring Start-Up',
+                'svc5-desc': 'Michigan winters are no joke. We blow out your system in fall and fire it back up in spring. One less thing you gotta worry about.',
+                'svc6-title': 'Maintenance & Repair',
+                'svc6-desc': 'Sprinkler head got whacked by the mower? Valve acting funny? Just give us a call. We\'ll swing by and get it sorted out quick.',
+                'about-title': 'We\'re Your Neighbors \u2014 Not Some Big Corporation',
+                'about-p1': 'We\'ve been doing this in Novi and Oakland County for over 20 years. We\'re not some franchise \u2014 we\'re the local guys who actually know your soil, your water pressure, and your weather.',
+                'about-p2': 'When you call us, you get us. Not a call center, not a voicemail maze. Just real people who care about making your yard look great.',
+                'why-title': 'Why Folks Choose Us',
+                'why-subtitle': 'It\'s pretty simple \u2014 we show up, we do great work, and we don\'t overcharge.',
+                'why1-title': 'We Actually Listen',
+                'why1-desc': 'We come out, walk your yard with you, and figure out what YOU need. Not what\'s easiest for us to install.',
+                'why2-title': 'We Pick Up the Phone',
+                'why2-desc': 'Sprinkler emergency at 7AM? Call us. We actually answer. No phone tree, no "leave a message and we\'ll get back to you next week."',
+                'why3-title': 'We Know Michigan',
+                'why3-desc': 'Been here our whole lives. We know what the freeze-thaw does, we know the clay soil, we know the drill. Literally.',
+                'why4-title': 'Honest Prices',
+                'why4-desc': 'We tell you what it costs upfront. No hidden fees, no surprise charges at the end. What we quote is what you pay.',
+                'cta-title': 'Let\'s Talk About Your Yard',
+                'cta-desc': 'Give us a call or fill out the form. We\'ll come take a look and give you an honest estimate \u2014 free, no pressure.'
+            },
+            engineer: {
+                'hero-title': 'Precision Irrigation Engineering',
+                'hero-title-suffix': 'for Oakland County Properties',
+                'hero-desc': 'Hydraulically optimized sprinkler systems, zone-calculated irrigation design, photometric landscape lighting, and engineered drainage solutions. Data-driven water management for residential and commercial applications.',
+                'services-title': 'Technical Water Management Systems',
+                'services-subtitle': 'Engineered solutions with calculated flow rates, pressure specifications, and zone-optimized coverage patterns.',
+                'svc1-title': 'Automated Sprinkler Systems',
+                'svc1-desc': 'Multi-zone systems with matched precipitation rates, Hunter I-20 and Rain Bird 5000 rotors, 40-65 PSI operating pressure, and Wi-Fi-enabled smart controllers with weather-based ET adjustments.',
+                'svc2-title': 'Hydraulic Irrigation Design',
+                'svc2-desc': 'CAD-plotted zone layouts with GPM calculations per zone, pipe sizing per ASABE standards, head-to-head coverage geometry, and precipitation rate matching across mixed-head zones.',
+                'svc3-title': 'Stormwater Drainage Engineering',
+                'svc3-desc': 'Perforated 4" corrugated pipe French drains, NDS channel drains rated to 11 GPM/ft, dry well infiltration systems, and laser-graded surface drainage with 2% minimum slope-to-drain.',
+                'svc4-title': 'Photometric Landscape Lighting',
+                'svc4-desc': '12V DC LED systems, 3000K color temperature, brass and copper fixtures, 10-gauge direct burial cable runs, and multi-tap transformers with photocell activation and timer backup.',
+                'svc5-title': 'System Winterization Protocol',
+                'svc5-desc': 'Compressed air blowout at 50-80 PSI (volume-dependent, never exceeding manufacturer specs), zone-by-zone evacuation sequence, backflow preventer drainage, and controller winter programming.',
+                'svc6-title': 'Diagnostics & Repair',
+                'svc6-desc': 'Systematic zone isolation testing, valve solenoid resistance checks (20-60 ohm range), wire path tracing with 521A locator, nozzle performance verification, and pressure loss analysis.',
+                'about-title': 'Engineering-First Approach to Water Management',
+                'about-p1': 'JRM applies engineering methodology to every irrigation project. We calculate, we measure, we test. Soil percolation rates, static water pressure, GPM availability, pipe friction loss \u2014 every variable accounted for before a single trench is cut.',
+                'about-p2': 'The result: systems that deliver uniform distribution (Christiansen CU > 85%), minimize runoff, and operate within optimal pressure windows. No guesswork. No callbacks.',
+                'why-title': 'Technical Differentiation',
+                'why-subtitle': 'Specification-grade work in a market dominated by approximation.',
+                'why1-title': 'Calculated System Design',
+                'why1-desc': 'Every system starts with a measured site survey: water pressure, flow rate, soil type, slope grade. Design follows data, not guesswork.',
+                'why2-title': 'Rapid Response Diagnostics',
+                'why2-desc': 'Zone isolation, solenoid testing, wire tracing, pressure differential analysis. We find the actual problem, not just the symptom.',
+                'why3-title': 'Climate-Specific Engineering',
+                'why3-desc': 'Systems designed for USDA Zone 6a conditions: frost depth to 42", freeze-thaw cycling, clay-heavy soils with poor infiltration rates typical of Oakland County.',
+                'why4-title': 'Itemized Specifications',
+                'why4-desc': 'Every estimate includes part numbers, quantities, labor hours, and technical justification. Full transparency on materials and methodology.',
+                'cta-title': 'Request a Technical Consultation',
+                'cta-desc': 'Schedule an on-site assessment. We\'ll measure your water parameters, survey your property, and deliver a detailed system specification.'
+            },
+            poet: {
+                'hero-title': 'Where Water Meets Wonder',
+                'hero-title-suffix': 'in Every Drop We Design',
+                'hero-desc': 'We choreograph rainfall. We sculpt rivers of light. In the quiet architecture of underground pipes and gentle arcs of water, we find the poetry of a landscape coming alive.',
+                'services-title': 'The Art of Flowing Water',
+                'services-subtitle': 'Each service is a verse in the story of your landscape \u2014 written in water, light, and earth.',
+                'svc1-title': 'Sprinkler Choreography',
+                'svc1-desc': 'Watch your lawn dance beneath a thousand tiny rainbows at dawn. Each head placed with intention, each arc a brushstroke painting your grass in emerald.',
+                'svc2-title': 'Irrigation Architecture',
+                'svc2-desc': 'Beneath the surface, an invisible river system breathes life into roots and soil. We design these hidden waterways like veins carrying vitality to every living thing.',
+                'svc3-title': 'Taming the Flood',
+                'svc3-desc': 'Where water pools and threatens, we guide it gently away \u2014 French drains whispering beneath gravel, gravity doing what it does best, restoring order from chaos.',
+                'svc4-title': 'Gardens of Light',
+                'svc4-desc': 'When the sun surrenders to dusk, your landscape awakens anew. Warm pools of light beneath ancient oaks, golden paths leading home, shadows turned to sculpture.',
+                'svc5-title': 'The Autumn Farewell',
+                'svc5-desc': 'As Michigan\'s bitter cold descends, we put your water to sleep \u2014 a gentle exhale of compressed air, pipes emptied, system resting, dreaming of spring.',
+                'svc6-title': 'The Mending',
+                'svc6-desc': 'Even the finest systems speak up when something\'s wrong \u2014 a broken head weeping into soil, a valve refusing its duty. We listen, we find, we heal.',
+                'about-title': 'We Write Poetry in Water and Earth',
+                'about-p1': 'For twenty years, JRM has been composing landscapes in Oakland County. Not with words, but with the quiet miracle of water arriving precisely where life needs it most.',
+                'about-p2': 'Every yard is a canvas. Every property tells a different story. We don\u2019t impose \u2014 we listen to what the land wants, then help it speak in the language of green.',
+                'why-title': 'Why the Story Matters',
+                'why-subtitle': 'In a world of quick fixes and careless work, we believe your landscape deserves an author.',
+                'why1-title': 'Bespoke Creation',
+                'why1-desc': 'No two poems are alike. Neither are our designs. We read your land like a manuscript and write a system that belongs only to it.',
+                'why2-title': 'A Voice on the Line',
+                'why2-desc': 'When water cries out from a broken main at dawn, someone should answer. We do. Every time.',
+                'why3-title': 'Seasons in Our Bones',
+                'why3-desc': 'We feel the frost coming. We know when spring stirs. Two decades of Michigan seasons have taught us rhythms no textbook contains.',
+                'why4-title': 'Clarity Before the First Drop',
+                'why4-desc': 'Before we move a single stone, you\u2019ll know every cost, every choice, every reason. Transparency is its own kind of beauty.',
+                'cta-title': 'Let Us Write Your Landscape\'s Story',
+                'cta-desc': 'Every great garden begins with a conversation. Call us, and together we\u2019ll compose something beautiful.'
+            },
+            closer: {
+                'hero-title': 'STOP Wasting Money',
+                'hero-title-suffix': 'on Bad Irrigation',
+                'hero-desc': 'Your neighbors already called us. Their lawns look incredible. Yours could too \u2014 FREE estimate, ZERO obligation, and we\'ll beat any written quote. What are you waiting for?',
+                'services-title': 'Solutions That PAY FOR THEMSELVES',
+                'services-subtitle': 'Every dollar you spend with JRM saves you three in water bills, dead sod replacement, and foundation repairs. That\'s not marketing \u2014 that\'s math.',
+                'svc1-title': 'Sprinkler Systems',
+                'svc1-desc': 'A pro sprinkler system pays for itself in 2 seasons through water savings alone. Plus your home value jumps 10-15%. This is an INVESTMENT, not an expense.',
+                'svc2-title': 'Irrigation Design',
+                'svc2-desc': 'Bad design = wasted water = wasted money. Every month. Our precision designs cut water usage 30-40% vs DIY installs. The savings START immediately.',
+                'svc3-title': 'Drainage Solutions',
+                'svc3-desc': 'Standing water destroys foundations. Foundation repair costs $5,000-$15,000. Our drainage fix? A fraction of that. This is PROTECTION for your biggest asset.',
+                'svc4-title': 'Landscape Lighting',
+                'svc4-desc': 'Homes with landscape lighting sell 20% faster. LED systems cost pennies per night to run. Curb appeal that literally pays you back at resale.',
+                'svc5-title': 'Winterization',
+                'svc5-desc': 'Skip winterization and you\'re looking at $2,000-$5,000 in burst pipe repairs come spring. Our blowout? Under $100. Do the math.',
+                'svc6-title': 'Emergency Repair',
+                'svc6-desc': 'Every DAY a broken system runs, you\'re pouring money into the ground. We respond FAST because time is literally money when it comes to water waste.',
+                'about-title': 'The Smart Money Calls JRM',
+                'about-p1': 'Over 500 Oakland County homeowners have made the smart call. They\'re saving money on water, protecting their property values, and enjoying lawns that make the whole street look better.',
+                'about-p2': 'You can keep hand-watering and hoping for the best. Or you can do what winners do \u2014 invest in a system that works while you sleep. Your call.',
+                'why-title': 'Four Reasons to Call RIGHT NOW',
+                'why-subtitle': 'Every week you wait is another week of wasted water, dead grass, and money down the drain.',
+                'why1-title': 'FREE Estimate \u2014 Today',
+                'why1-desc': 'We\'ll come out, assess your property, and give you an exact price. Free. No strings. If you don\'t love the quote, shake hands and walk away.',
+                'why2-title': 'Same-Day Response',
+                'why2-desc': 'Call now, we answer now. Not next week, not "we\'ll get back to you." NOW. Because your time matters.',
+                'why3-title': 'Price-Match GUARANTEE',
+                'why3-desc': 'Got a written quote from someone else? Bring it. We\'ll match or beat it \u2014 guaranteed. Same quality, better price.',
+                'why4-title': 'No Hidden Fees. EVER.',
+                'why4-desc': 'The price we quote is the price you pay. Period. No surprises, no add-ons, no "oh we found something else." What you see is what you get.',
+                'cta-title': 'Don\'t Wait \u2014 Your Lawn Needs This NOW',
+                'cta-desc': 'Spring is HERE. Slots are filling up FAST. Call now for your FREE estimate before we\'re booked solid.'
+            },
+            oldtimer: {
+                'hero-title': 'Good Water, Done Right',
+                'hero-title-suffix': 'the Way It Should Be',
+                'hero-desc': 'Been putting in sprinkler systems around Novi since before half these houses were built. We know this land, we know this water, and we know how to make your yard sing.',
+                'services-title': 'Honest Work, Time-Tested Methods',
+                'services-subtitle': 'There ain\'t no shortcut to a good irrigation system. We do it right the first time so you don\'t call us back for the wrong reasons.',
+                'svc1-title': 'Sprinkler Systems',
+                'svc1-desc': 'I\'ve put in more sprinkler heads than I can count. Every one placed by hand, every zone tested until it\'s perfect. That\'s how my daddy taught me, and it still works.',
+                'svc2-title': 'Irrigation Design',
+                'svc2-desc': 'I can tell you what your soil needs just by looking at it. But we still do the measurements, because even after 30 years, you respect the process.',
+                'svc3-title': 'Drainage Work',
+                'svc3-desc': 'Water\'s gonna go somewhere \u2014 the question is whether you tell it where or it decides for you. We\'ve been redirecting water since before French drains were trendy.',
+                'svc4-title': 'Landscape Lighting',
+                'svc4-desc': 'A well-lit yard is a safe yard and a beautiful yard. We run clean wiring, set solid fixtures, and make sure it all looks like it belongs there.',
+                'svc5-title': 'Winterization & Start-Up',
+                'svc5-desc': 'Michigan\'ll freeze the pipes right out of the ground if you let it. We\'ve been winterizing systems since \'94. Trust me, you want this done right.',
+                'svc6-title': 'Repairs & Maintenance',
+                'svc6-desc': 'Something broken? Give us a holler. We\'ve fixed every problem there is at least twice. Usually got the parts on the truck already.',
+                'about-title': 'Twenty-Some Years of Dirty Hands and Green Lawns',
+                'about-p1': 'Started this company with a truck, a trencher, and a handshake. Built it one yard at a time, one satisfied customer at a time. That\'s still how we do business in Novi.',
+                'about-p2': 'Fancy websites and slick marketing don\'t dig trenches straight. Experience does. And there ain\'t nobody in Oakland County who\'s dug more trenches than us.',
+                'why-title': 'Why Folks Keep Coming Back',
+                'why-subtitle': 'Don\'t take my word for it \u2014 ask your neighbor. Odds are, we did their yard too.',
+                'why1-title': 'We Know Every Inch of This County',
+                'why1-desc': 'The clay soil in West Bloomfield, the sandy patches in South Lyon, the rocky mess in Milford \u2014 we\'ve worked \'em all. Nothing surprises us anymore.',
+                'why2-title': 'We Show Up When We Say We Will',
+                'why2-desc': 'My word is my bond. If I say Tuesday morning, I mean Tuesday morning. Too many contractors have forgotten what a promise means.',
+                'why3-title': 'We\'ve Seen It All',
+                'why3-desc': 'Thirty winters, thirty springs. We know when the frost\'s gonna heave, when the ground thaws, and exactly when to fire your system back up.',
+                'why4-title': 'Fair Price, No Funny Business',
+                'why4-desc': 'I give you a number, that\'s the number. Been doing this too long to play games with pricing. Life\'s too short for that.',
+                'cta-title': 'Give Us a Ring',
+                'cta-desc': 'Best way to start is just a phone call. We\'ll come out, take a look, and tell you straight what we think. No charge for the visit.'
+            },
+            eco: {
+                'hero-title': 'Sustainable Water Stewardship',
+                'hero-title-suffix': 'for a Greener Tomorrow',
+                'hero-desc': 'Every drop matters. We design water-smart irrigation systems that keep your landscape thriving while conserving our most precious resource. Beautiful yards and environmental responsibility aren\'t opposites \u2014 they\'re our specialty.',
+                'services-title': 'Earth-Conscious Landscape Solutions',
+                'services-subtitle': 'Reducing water waste, protecting watersheds, and building systems that work with nature \u2014 not against it.',
+                'svc1-title': 'Smart Sprinkler Systems',
+                'svc1-desc': 'Weather-responsive controllers, rain sensors, and precision nozzles that eliminate overwatering. Our systems use 30-50% less water than conventional setups while delivering better coverage.',
+                'svc2-title': 'Water-Wise Irrigation Design',
+                'svc2-desc': 'Hydrozoning by plant water needs, drip irrigation for beds and borders, and soil moisture sensors that water only when the earth actually needs it. Zero waste design.',
+                'svc3-title': 'Natural Drainage Systems',
+                'svc3-desc': 'Rain gardens, bioswales, permeable surfaces, and infiltration beds that manage stormwater naturally. Reduce runoff, recharge groundwater, and protect local waterways.',
+                'svc4-title': 'Solar-Powered Landscape Lighting',
+                'svc4-desc': 'Energy-efficient LED systems with solar options available. Minimal energy footprint, maximum visual impact. Dark-sky friendly designs that reduce light pollution.',
+                'svc5-title': 'Seasonal Conservation',
+                'svc5-desc': 'Proper winterization prevents the waste of emergency repairs. Spring calibration ensures your system starts the season at peak efficiency \u2014 no water wasted.',
+                'svc6-title': 'System Optimization',
+                'svc6-desc': 'Leak detection, head alignment, pressure regulation, and controller reprogramming. A maintained system wastes 15-25% less water than a neglected one.',
+                'about-title': 'Water Guardians of Oakland County',
+                'about-p1': 'At JRM, we believe irrigation professionals have a responsibility to be water stewards first. Every system we design starts with the question: how do we use the least water to achieve the healthiest landscape?',
+                'about-p2': 'Michigan\'s Great Lakes are not infinite. Oakland County\'s aquifers need protection. By choosing smart irrigation, you\'re not just investing in your yard \u2014 you\'re investing in the future of our local water resources.',
+                'why-title': 'The Environmental Difference',
+                'why-subtitle': 'Choosing JRM means choosing a partner who values your landscape AND the planet.',
+                'why1-title': 'Water Audit First',
+                'why1-desc': 'Before we design anything, we audit your current water usage and identify waste. Many clients save 30%+ just from our initial recommendations.',
+                'why2-title': 'Native Plant Partnerships',
+                'why2-desc': 'We work with local nurseries to recommend native, drought-resistant plantings that complement our irrigation designs and reduce long-term water needs.',
+                'why3-title': 'Climate-Adapted Systems',
+                'why3-desc': 'Our systems are designed for Michigan\'s changing climate patterns. Smart controllers adjust automatically to rainfall, temperature, and seasonal shifts.',
+                'why4-title': 'Transparent Impact Reporting',
+                'why4-desc': 'We provide water savings estimates with every project. Know exactly how many gallons you\'re conserving and what that means for your community.',
+                'cta-title': 'Make the Sustainable Choice',
+                'cta-desc': 'Your lawn can be lush AND water-wise. Let\'s design a system that\'s good for your property and good for the planet.'
+            }
+        };
+
+        // Voice switcher logic
+        const voiceBtns = document.querySelectorAll('.voice-btn');
+        const savedVoice = localStorage.getItem('jrm-voice');
+        if (savedVoice && voices[savedVoice]) {
+            applyVoice(savedVoice, false);
+            voiceBtns.forEach(b => {
+                const active = b.dataset.voice === savedVoice;
+                b.classList.toggle('active', active);
+                b.setAttribute('aria-checked', active);
+            });
+        }
+
+        voiceBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const voice = btn.dataset.voice;
+                applyVoice(voice, true);
+                localStorage.setItem('jrm-voice', voice);
+                voiceBtns.forEach(b => {
+                    const active = b.dataset.voice === voice;
+                    b.classList.toggle('active', active);
+                    b.setAttribute('aria-checked', active);
+                });
+            });
+            btn.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
+            });
+        });
+
+        function applyVoice(voiceName, animate) {
+            const data = voices[voiceName];
+            if (!data) return;
+            const els = document.querySelectorAll('[data-voice-key]');
+            if (animate) {
+                els.forEach(el => el.classList.add('fading'));
+                setTimeout(() => {
+                    els.forEach(el => {
+                        const key = el.dataset.voiceKey;
+                        if (data[key]) el.textContent = data[key];
+                        el.classList.remove('fading');
+                    });
+                }, 300);
+            } else {
+                els.forEach(el => {
+                    const key = el.dataset.voiceKey;
+                    if (data[key]) el.textContent = data[key];
+                });
+            }
+        }
+
+        // ===== DOWNPOUR MODE =====
+        const downpourBtn = document.getElementById('downpourBtn');
+        const rainCanvas = document.getElementById('rainCanvas');
+        const rainCtx = rainCanvas.getContext('2d');
+        const lightningFlash = document.getElementById('lightningFlash');
+        let downpourActive = false;
+        let rainDrops = [];
+        let rainAnimId = null;
+        let lightningInterval = null;
+        let ripples = [];
+
+        // Restore downpour state
+        if (localStorage.getItem('jrm-downpour') === 'true') {
+            activateDownpour(false);
+        }
+
+        downpourBtn.addEventListener('click', () => {
+            if (downpourActive) {
+                deactivateDownpour();
+            } else {
+                activateDownpour(true);
+            }
+        });
+
+        function activateDownpour(withPulse) {
+            downpourActive = true;
+            downpourBtn.classList.add('active');
+            document.body.classList.add('downpour-active');
+            rainCanvas.classList.add('active');
+            localStorage.setItem('jrm-downpour', 'true');
+
+            // Screen pulse on activation
+            if (withPulse) {
+                lightningFlash.classList.add('flash');
+                setTimeout(() => lightningFlash.classList.remove('flash'), 100);
+                setTimeout(() => { lightningFlash.classList.add('flash'); setTimeout(() => lightningFlash.classList.remove('flash'), 60); }, 200);
+            }
+
+            // Explode particle count
+            while (particles.length < 240) {
+                particles.push(new Particle());
+            }
+
+            // Rain canvas setup
+            rainCanvas.width = window.innerWidth;
+            rainCanvas.height = window.innerHeight;
+            rainDrops = [];
+            for (let i = 0; i < 200; i++) {
+                rainDrops.push({
+                    x: Math.random() * rainCanvas.width,
+                    y: Math.random() * rainCanvas.height,
+                    len: Math.random() * 20 + 10,
+                    speed: Math.random() * 8 + 6,
+                    opacity: Math.random() * 0.4 + 0.1
+                });
+            }
+            ripples = [];
+            animateRain();
+
+            // Lightning flashes
+            lightningInterval = setInterval(() => {
+                if (!downpourActive) return;
+                if (Math.random() > 0.6) {
+                    lightningFlash.classList.add('flash');
+                    setTimeout(() => lightningFlash.classList.remove('flash'), 80);
+                    if (Math.random() > 0.5) {
+                        setTimeout(() => {
+                            lightningFlash.classList.add('flash');
+                            setTimeout(() => lightningFlash.classList.remove('flash'), 50);
+                        }, 150);
+                    }
+                }
+            }, 3000);
+        }
+
+        function deactivateDownpour() {
+            downpourActive = false;
+            downpourBtn.classList.remove('active');
+            document.body.classList.remove('downpour-active');
+            rainCanvas.classList.remove('active');
+            localStorage.setItem('jrm-downpour', 'false');
+
+            // Reduce particles back
+            while (particles.length > PARTICLE_COUNT) {
+                particles.pop();
+            }
+
+            // Stop rain
+            if (rainAnimId) { cancelAnimationFrame(rainAnimId); rainAnimId = null; }
+            rainCtx.clearRect(0, 0, rainCanvas.width, rainCanvas.height);
+
+            // Stop lightning
+            if (lightningInterval) { clearInterval(lightningInterval); lightningInterval = null; }
+            lightningFlash.classList.remove('flash');
+        }
+
+        function animateRain() {
+            if (!downpourActive) return;
+            rainCtx.clearRect(0, 0, rainCanvas.width, rainCanvas.height);
+            const color = getParticleColor();
+
+            // Rain drops
+            rainDrops.forEach(drop => {
+                rainCtx.beginPath();
+                rainCtx.moveTo(drop.x, drop.y);
+                rainCtx.lineTo(drop.x + 1, drop.y + drop.len);
+                rainCtx.strokeStyle = `rgba(${color}, ${drop.opacity})`;
+                rainCtx.lineWidth = 1;
+                rainCtx.stroke();
+
+                drop.y += drop.speed;
+                drop.x += 0.5; // slight wind
+                if (drop.y > rainCanvas.height) {
+                    // Spawn ripple
+                    if (Math.random() > 0.85) {
+                        ripples.push({ x: drop.x, y: rainCanvas.height - 5, r: 0, maxR: Math.random() * 20 + 10, opacity: 0.4 });
+                    }
+                    drop.y = -drop.len;
+                    drop.x = Math.random() * rainCanvas.width;
+                }
+            });
+
+            // Ripples
+            ripples.forEach((rip, i) => {
+                rainCtx.beginPath();
+                rainCtx.arc(rip.x, rip.y, rip.r, 0, Math.PI * 2);
+                rainCtx.strokeStyle = `rgba(${color}, ${rip.opacity})`;
+                rainCtx.lineWidth = 1;
+                rainCtx.stroke();
+                rip.r += 0.8;
+                rip.opacity -= 0.01;
+                if (rip.opacity <= 0 || rip.r >= rip.maxR) ripples.splice(i, 1);
+            });
+
+            rainAnimId = requestAnimationFrame(animateRain);
+        }
+
+        // Resize rain canvas
+        window.addEventListener('resize', () => {
+            rainCanvas.width = window.innerWidth;
+            rainCanvas.height = window.innerHeight;
         });
 
     })();
