@@ -1,0 +1,2031 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="raindrop">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JRM Programming the Rain | Irrigation &amp; Sprinkler Systems | Novi, MI</title>
+    <meta name="description" content="JRM Programming the Rain — expert irrigation, sprinkler systems, landscape lighting, and drainage solutions in Novi, Michigan. Serving Oakland County since day one.">
+    <meta name="keywords" content="irrigation, sprinkler systems, landscape lighting, drainage, Novi MI, Oakland County, lawn care, winterizing, JRM Programming the Rain">
+    <meta property="og:title" content="JRM Programming the Rain | Irrigation &amp; Sprinkler Systems">
+    <meta property="og:description" content="Expert irrigation, sprinkler systems, landscape lighting, and drainage solutions in Novi, Michigan.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "JRM Programming the Rain",
+        "description": "Expert irrigation, sprinkler systems, landscape lighting, and drainage solutions.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "22783 Heslip Dr",
+            "addressLocality": "Novi",
+            "addressRegion": "MI",
+            "postalCode": "48375",
+            "addressCountry": "US"
+        },
+        "telephone": "(248) 946-4696",
+        "areaServed": "Oakland County, Michigan"
+    }
+    </script>
+    <style>
+        /* ===== CSS RESET ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* ===== SKIP LINK ===== */
+        .skip-link {
+            position: absolute; top: -100%; left: 50%; transform: translateX(-50%);
+            background: var(--accent); color: #fff; padding: 12px 24px; border-radius: 0 0 8px 8px;
+            z-index: 10000; font-family: 'Inter', sans-serif; font-weight: 600;
+            transition: top 0.3s;
+        }
+        .skip-link:focus { top: 0; }
+
+        /* ===== THEME: RAINDROP (Default — Deep Blue Water) ===== */
+        [data-theme="raindrop"] {
+            --bg: #0a1628;
+            --bg-alt: #0f1f3a;
+            --card-bg: rgba(15, 31, 58, 0.85);
+            --card-border: rgba(59, 130, 246, 0.15);
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --heading: #f1f5f9;
+            --accent: #3b82f6;
+            --accent-rgb: 59, 130, 246;
+            --accent-hover: #60a5fa;
+            --accent-glow: rgba(59, 130, 246, 0.3);
+            --gradient-start: #1e40af;
+            --gradient-end: #3b82f6;
+            --hero-overlay: rgba(10, 22, 40, 0.75);
+            --nav-bg: rgba(10, 22, 40, 0.85);
+            --particle-color: 59, 130, 246;
+            --footer-bg: #060e1c;
+            --divider: rgba(59, 130, 246, 0.1);
+            --input-bg: rgba(15, 31, 58, 0.6);
+            --success: #22c55e;
+        }
+
+        /* ===== THEME: VERDANT (Lush Green) ===== */
+        [data-theme="verdant"] {
+            --bg: #0a1a0f;
+            --bg-alt: #0f2a16;
+            --card-bg: rgba(15, 42, 22, 0.85);
+            --card-border: rgba(34, 197, 94, 0.15);
+            --text: #e2f0e5;
+            --text-muted: #8fbc94;
+            --heading: #f0fdf4;
+            --accent: #22c55e;
+            --accent-rgb: 34, 197, 94;
+            --accent-hover: #4ade80;
+            --accent-glow: rgba(34, 197, 94, 0.3);
+            --gradient-start: #15803d;
+            --gradient-end: #22c55e;
+            --hero-overlay: rgba(10, 26, 15, 0.75);
+            --nav-bg: rgba(10, 26, 15, 0.85);
+            --particle-color: 34, 197, 94;
+            --footer-bg: #060f08;
+            --divider: rgba(34, 197, 94, 0.1);
+            --input-bg: rgba(15, 42, 22, 0.6);
+            --success: #3b82f6;
+        }
+
+        /* ===== THEME: MORNING DEW (Light/Clean) ===== */
+        [data-theme="dew"] {
+            --bg: #f0f7ff;
+            --bg-alt: #e0eefc;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --card-border: rgba(14, 116, 144, 0.15);
+            --text: #1e3a5f;
+            --text-muted: #4a7196;
+            --heading: #0c2340;
+            --accent: #0e7490;
+            --accent-rgb: 14, 116, 144;
+            --accent-hover: #0891b2;
+            --accent-glow: rgba(14, 116, 144, 0.2);
+            --gradient-start: #0e7490;
+            --gradient-end: #06b6d4;
+            --hero-overlay: rgba(240, 247, 255, 0.7);
+            --nav-bg: rgba(240, 247, 255, 0.9);
+            --particle-color: 14, 116, 144;
+            --footer-bg: #0c2340;
+            --divider: rgba(14, 116, 144, 0.1);
+            --input-bg: rgba(255, 255, 255, 0.7);
+            --success: #22c55e;
+        }
+        [data-theme="dew"] .footer-section { color: #e2e8f0; }
+        [data-theme="dew"] .footer-section .text-muted { color: #94a3b8; }
+        [data-theme="dew"] .footer-section a:hover { color: #06b6d4; }
+
+        /* ===== BASE STYLES ===== */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--heading);
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .text-muted { color: var(--text-muted); }
+        .text-accent { color: var(--accent); }
+
+        .section-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.3;
+        }
+
+        /* ===== SCROLL PROGRESS BAR ===== */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            z-index: 10001;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        /* ===== LOADING SCREEN ===== */
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader-content {
+            text-align: center;
+        }
+        .loader-drop {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            animation: dropPulse 1.2s ease-in-out infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes dropPulse {
+            0%, 100% { transform: rotate(-45deg) scale(1); opacity: 1; }
+            50% { transform: rotate(-45deg) scale(1.2); opacity: 0.7; }
+        }
+        .loader-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--heading);
+            letter-spacing: 2px;
+        }
+
+        /* ===== CURSOR GLOW ===== */
+        .cursor-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            background: radial-gradient(circle, rgba(var(--particle-color), 0.08) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s;
+            opacity: 0;
+        }
+        .cursor-glow.active { opacity: 1; }
+
+        /* ===== PARTICLE CANVAS ===== */
+        #particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            padding: 16px 0;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+        .navbar.scrolled {
+            background: var(--nav-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 10px 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--heading);
+        }
+        .nav-logo svg { flex-shrink: 0; }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: color 0.3s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+        .nav-links a:hover { color: var(--heading); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: #fff !important;
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px var(--accent-glow);
+        }
+        .nav-cta::after { display: none !important; }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 10001;
+            background: none;
+            border: none;
+            padding: 8px;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--heading);
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: var(--bg);
+            z-index: 10000;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .mobile-menu a {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--heading);
+            transition: color 0.3s;
+        }
+        .mobile-menu a:hover { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .mobile-menu { display: flex; }
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg, var(--hero-overlay), rgba(var(--accent-rgb), 0.1)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="%230a1628"/><stop offset="100%" stop-color="%231e40af" stop-opacity="0.3"/></linearGradient></defs><rect fill="url(%23g)" width="1200" height="800"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(var(--accent-rgb), 0.12);
+            border: 1px solid rgba(var(--accent-rgb), 0.25);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.2rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+        .hero-shimmer {
+            background: linear-gradient(
+                120deg,
+                var(--heading) 0%,
+                var(--accent) 25%,
+                var(--heading) 50%,
+                var(--accent) 75%,
+                var(--heading) 100%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 4s linear infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            max-width: 540px;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: #fff;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--heading);
+            border: 2px solid rgba(var(--accent-rgb), 0.3);
+        }
+        .btn-outline:hover {
+            border-color: var(--accent);
+            background: rgba(var(--accent-rgb), 0.08);
+            transform: translateY(-3px);
+        }
+        .btn .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+        }
+        @keyframes ripple {
+            to { transform: scale(4); opacity: 0; }
+        }
+
+        /* ===== STATS BAR ===== */
+        .stats-bar {
+            background: var(--bg-alt);
+            border-top: 1px solid var(--divider);
+            border-bottom: 1px solid var(--divider);
+            padding: 48px 0;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            text-align: center;
+        }
+        .stat-item h3 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--accent);
+            font-weight: 800;
+        }
+        .stat-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services-section { background: var(--bg); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 36px 28px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(var(--accent-rgb), 0.12);
+            border-color: rgba(var(--accent-rgb), 0.3);
+        }
+        .service-card:hover::before { opacity: 1; }
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(var(--accent-rgb), 0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        .service-card:hover .service-icon {
+            background: rgba(var(--accent-rgb), 0.2);
+            transform: scale(1.05);
+        }
+        .service-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--accent);
+        }
+        .service-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-section {
+            background: var(--bg-alt);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-visual {
+            position: relative;
+        }
+        .about-image-placeholder {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.15), rgba(var(--accent-rgb), 0.05));
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .about-image-placeholder svg {
+            width: 120px;
+            height: 120px;
+            stroke: var(--accent);
+            opacity: 0.3;
+        }
+        .about-badge {
+            position: absolute;
+            bottom: -16px;
+            right: -16px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: #fff;
+            padding: 20px 28px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
+        .about-badge .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .about-badge .label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+        .about-text h2 { margin-bottom: 20px; }
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 28px;
+        }
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .about-feature svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--accent);
+            flex-shrink: 0;
+        }
+
+        /* ===== WHY CHOOSE US ===== */
+        .why-section { background: var(--bg); }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+        .why-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 32px;
+            display: flex;
+            gap: 20px;
+            transition: all 0.4s ease;
+        }
+        .why-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(var(--accent-rgb), 0.1);
+            border-color: rgba(var(--accent-rgb), 0.3);
+        }
+        .why-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: rgba(var(--accent-rgb), 0.2);
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .why-card h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .why-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ===== PROCESS/TIMELINE ===== */
+        .process-section { background: var(--bg-alt); }
+        .process-timeline {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 28px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent), transparent);
+        }
+        .process-step {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .process-step:last-child { margin-bottom: 0; }
+        .step-marker {
+            width: 56px;
+            height: 56px;
+            background: rgba(var(--accent-rgb), 0.12);
+            border: 2px solid rgba(var(--accent-rgb), 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--accent);
+            flex-shrink: 0;
+            z-index: 1;
+            transition: all 0.3s;
+        }
+        .process-step:hover .step-marker {
+            background: var(--accent);
+            color: #fff;
+        }
+        .step-content h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .step-content p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ===== SERVICE AREA / MAP ===== */
+        .area-section { background: var(--bg); }
+        .area-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        .area-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .area-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            padding: 10px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        .area-item:hover {
+            border-color: rgba(var(--accent-rgb), 0.4);
+            transform: translateX(4px);
+        }
+        .area-item svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--accent);
+            flex-shrink: 0;
+        }
+        .area-info {
+            margin-top: 32px;
+        }
+        .area-info h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials-section { background: var(--bg-alt); }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .testimonial-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.4s;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(var(--accent-rgb), 0.1);
+        }
+        .testimonial-stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 16px;
+        }
+        .testimonial-stars svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--accent);
+            stroke: none;
+        }
+        .testimonial-text {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .testimonial-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        .testimonial-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .testimonial-loc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 60%);
+        }
+        .cta-section h2 {
+            color: #fff;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 16px;
+            position: relative;
+        }
+        .cta-section p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.15rem;
+            max-width: 560px;
+            margin: 0 auto 36px;
+            position: relative;
+        }
+        .cta-section .btn {
+            background: #fff;
+            color: var(--gradient-start);
+            font-weight: 700;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            position: relative;
+        }
+        .cta-section .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-section { background: var(--bg); }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+        .contact-info-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        .contact-info-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(var(--accent-rgb), 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .contact-info-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--accent);
+        }
+        .contact-info-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .contact-info-value {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+        .form-group { position: relative; }
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--input-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            outline: none;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.12);
+        }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .form-group select { cursor: pointer; }
+
+        /* ===== FOOTER ===== */
+        .footer-section {
+            background: var(--footer-bg);
+            padding: 64px 0 24px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 12px;
+            line-height: 1.7;
+        }
+        .footer-col h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: var(--heading);
+        }
+        .footer-col a {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding: 4px 0;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .footer-col a:hover {
+            color: var(--accent);
+            transform: translateX(4px);
+        }
+        .footer-bottom {
+            border-top: 1px solid var(--divider);
+            padding-top: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .footer-bottom a { color: var(--accent); transition: color 0.3s; }
+        .footer-bottom a:hover { color: var(--accent-hover); }
+
+        /* ===== THEME SWITCHER ===== */
+        .theme-switcher {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .theme-label {
+            writing-mode: vertical-rl;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+        .theme-dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .theme-dot:hover { transform: scale(1.25); }
+        .theme-dot.active {
+            border-color: var(--heading);
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+        .theme-dot[data-theme="raindrop"] { background: #3b82f6; }
+        .theme-dot[data-theme="verdant"] { background: #22c55e; }
+        .theme-dot[data-theme="dew"] { background: #06b6d4; }
+
+        .theme-dot[role="radio"] { outline: none; }
+        .theme-dot[role="radio"]:focus-visible {
+            box-shadow: 0 0 0 3px var(--accent);
+        }
+
+        /* ===== SCROLL REVEAL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .services-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr; }
+            .area-grid { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+            .form-row { grid-template-columns: 1fr; }
+            .about-features { grid-template-columns: 1fr; }
+            .area-list { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .theme-switcher { right: 10px; }
+        }
+
+        /* ===== PRINT ===== */
+        @media print {
+            .navbar, .theme-switcher, .cursor-glow, #particles, .loader,
+            .scroll-progress, .hamburger, .mobile-menu, .cta-section { display: none !important; }
+            body { background: #fff; color: #000; }
+            section { padding: 30px 0; }
+            .hero { min-height: auto; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-drop"></div>
+            <div class="loader-text">Programming the Rain</div>
+        </div>
+    </div>
+
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particles"></canvas>
+
+    <!-- Theme Switcher -->
+    <div class="theme-switcher" role="radiogroup" aria-label="Theme selector">
+        <span class="theme-label">Theme</span>
+        <div class="theme-dot active" data-theme="raindrop" role="radio" aria-checked="true" aria-label="Raindrop theme" tabindex="0"></div>
+        <div class="theme-dot" data-theme="verdant" role="radio" aria-checked="false" aria-label="Verdant theme" tabindex="0"></div>
+        <div class="theme-dot" data-theme="dew" role="radio" aria-checked="false" aria-label="Morning Dew theme" tabindex="0"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo" aria-label="JRM Programming the Rain - Home">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                </svg>
+                <span>JRM</span>
+            </a>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#process">Process</a>
+                <a href="#areas">Areas</a>
+                <a href="#testimonials">Reviews</a>
+                <a href="#contact" class="nav-cta">Get a Quote</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+        <a href="#services" class="mobile-link">Services</a>
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#process" class="mobile-link">Process</a>
+        <a href="#areas" class="mobile-link">Areas</a>
+        <a href="#testimonials" class="mobile-link">Reviews</a>
+        <a href="#contact" class="mobile-link">Get a Quote</a>
+    </div>
+
+    <main id="main">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="container">
+                <div class="hero-content reveal">
+                    <div class="hero-badge">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                        Novi, Michigan &mdash; Oakland County
+                    </div>
+                    <h1><span class="hero-shimmer">Programming the Rain</span> for Your Perfect Landscape</h1>
+                    <p>Expert irrigation design, sprinkler installation, landscape lighting, and drainage solutions. We engineer water systems that keep your property lush, efficient, and beautiful &mdash; rain or shine.</p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary magnetic-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            Free Estimate
+                        </a>
+                        <a href="#services" class="btn btn-outline magnetic-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 16 16 12 12 8"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                            Our Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="container">
+                <div class="stats-grid reveal">
+                    <div class="stat-item">
+                        <h3><span class="counter" data-target="500">0</span>+</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3><span class="counter" data-target="20">0</span>+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3><span class="counter" data-target="100">0</span>%</h3>
+                        <p>Licensed &amp; Insured</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3><span class="counter" data-target="15">0</span>+</h3>
+                        <p>Cities Served</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Services -->
+        <section class="services-section" id="services">
+            <div class="container">
+                <div class="text-center reveal" style="text-align:center;">
+                    <div class="section-label">What We Do</div>
+                    <h2 class="section-title">Comprehensive Water &amp; Landscape Solutions</h2>
+                    <p class="section-subtitle">From underground irrigation to landscape illumination &mdash; we handle every system that keeps your property thriving.</p>
+                </div>
+                <div class="services-grid">
+                    <!-- Sprinkler Systems -->
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                            </svg>
+                        </div>
+                        <h3>Sprinkler Systems</h3>
+                        <p>Custom-designed automatic sprinkler systems with Hunter and Rain Bird heads. Precision coverage zones, smart controllers, and efficient water distribution for every inch of your lawn.</p>
+                    </div>
+                    <!-- Irrigation Design -->
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M16.36 16.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M16.36 7.64l1.42-1.42"/>
+                            </svg>
+                        </div>
+                        <h3>Irrigation Design</h3>
+                        <p>Engineered irrigation layouts tailored to your property&rsquo;s soil, slope, and plant needs. Drip systems, rotary heads, and zone mapping for maximum water efficiency.</p>
+                    </div>
+                    <!-- Drainage Solutions -->
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                            </svg>
+                        </div>
+                        <h3>Drainage Solutions</h3>
+                        <p>French drains, channel drains, dry wells, and grading solutions that eliminate standing water, protect foundations, and prevent landscape erosion.</p>
+                    </div>
+                    <!-- Landscape Lighting -->
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/>
+                            </svg>
+                        </div>
+                        <h3>Landscape Lighting</h3>
+                        <p>Low-voltage LED path lights, accent uplights, and architectural illumination. Transform your property after dark with energy-efficient outdoor lighting systems.</p>
+                    </div>
+                    <!-- Winterization -->
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </div>
+                        <h3>Winterization &amp; Spring Start-Up</h3>
+                        <p>Professional compressed-air blowouts to protect your investment from Michigan winters. Spring activation, head adjustment, and full system diagnostics included.</p>
+                    </div>
+                    <!-- Maintenance & Repair -->
+                    <div class="service-card reveal">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                            </svg>
+                        </div>
+                        <h3>Maintenance &amp; Repair</h3>
+                        <p>Broken heads, leaking valves, controller issues &mdash; we diagnose and fix it fast. Scheduled maintenance plans keep your system running at peak performance year-round.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- About -->
+        <section class="about-section" id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-visual reveal">
+                        <div class="about-image-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                            </svg>
+                        </div>
+                        <div class="about-badge">
+                            <div class="number">20+</div>
+                            <div class="label">Years Strong</div>
+                        </div>
+                    </div>
+                    <div class="about-text reveal">
+                        <div class="section-label">About JRM</div>
+                        <h2 class="section-title">We Don&rsquo;t Just Install Sprinklers &mdash; We Engineer Rain</h2>
+                        <p>JRM Programming the Rain has been the go-to irrigation authority in Oakland County for over two decades. Based in Novi, Michigan, we combine deep technical knowledge with hands-on craftsmanship to deliver water management systems that actually work.</p>
+                        <p>Every property is different. Every soil type, every grade, every sun exposure pattern demands a custom solution. That&rsquo;s what we deliver &mdash; not cookie-cutter installs, but precision-engineered systems built for your land.</p>
+                        <div class="about-features">
+                            <div class="about-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Licensed &amp; Insured
+                            </div>
+                            <div class="about-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Oakland County Based
+                            </div>
+                            <div class="about-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Free On-Site Estimates
+                            </div>
+                            <div class="about-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                Hunter &amp; Rain Bird Certified
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Why Choose Us -->
+        <section class="why-section">
+            <div class="container">
+                <div class="text-center reveal" style="text-align:center;">
+                    <div class="section-label">Why JRM</div>
+                    <h2 class="section-title">What Sets Us Apart</h2>
+                    <p class="section-subtitle">In a market full of fly-by-night lawn guys, here&rsquo;s why Oakland County trusts JRM.</p>
+                </div>
+                <div class="why-grid">
+                    <div class="why-card reveal">
+                        <div class="why-number">01</div>
+                        <div>
+                            <h3>Custom Engineering, Not Templates</h3>
+                            <p>We survey your property, test your soil, map your grades. Every system is designed from scratch &mdash; no one-size-fits-all kits from a big-box store.</p>
+                        </div>
+                    </div>
+                    <div class="why-card reveal">
+                        <div class="why-number">02</div>
+                        <div>
+                            <h3>We Answer the Phone</h3>
+                            <p>Broken sprinkler head flooding your driveway at 7AM? We pick up. Fast response, real people, no phone trees or week-long wait times.</p>
+                        </div>
+                    </div>
+                    <div class="why-card reveal">
+                        <div class="why-number">03</div>
+                        <div>
+                            <h3>Michigan Winter Expertise</h3>
+                            <p>We know what freeze-thaw cycles do to pipes. Our winterization process and spring start-ups are dialed in for Southeast Michigan&rsquo;s brutal climate.</p>
+                        </div>
+                    </div>
+                    <div class="why-card reveal">
+                        <div class="why-number">04</div>
+                        <div>
+                            <h3>Transparent Pricing</h3>
+                            <p>Detailed written estimates before any work begins. No surprise charges, no scope creep. You know exactly what you&rsquo;re paying for and why.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Process -->
+        <section class="process-section" id="process">
+            <div class="container">
+                <div class="text-center reveal" style="text-align:center;">
+                    <div class="section-label">Our Process</div>
+                    <h2 class="section-title">From Consultation to Green Lawn</h2>
+                    <p class="section-subtitle">A proven 5-step process that takes the complexity out of irrigation.</p>
+                </div>
+                <div class="process-timeline">
+                    <div class="process-step reveal">
+                        <div class="step-marker">1</div>
+                        <div class="step-content">
+                            <h3>Free On-Site Consultation</h3>
+                            <p>We walk your property, assess soil conditions, identify problem areas, and discuss your goals. No pressure, no obligation.</p>
+                        </div>
+                    </div>
+                    <div class="process-step reveal">
+                        <div class="step-marker">2</div>
+                        <div class="step-content">
+                            <h3>Custom System Design</h3>
+                            <p>We engineer a zone-by-zone irrigation plan optimized for your property&rsquo;s unique layout, water pressure, and plant needs.</p>
+                        </div>
+                    </div>
+                    <div class="process-step reveal">
+                        <div class="step-marker">3</div>
+                        <div class="step-content">
+                            <h3>Professional Installation</h3>
+                            <p>Our crew handles everything &mdash; trenching, piping, head placement, wiring, and controller setup. Minimal disruption to your existing landscape.</p>
+                        </div>
+                    </div>
+                    <div class="process-step reveal">
+                        <div class="step-marker">4</div>
+                        <div class="step-content">
+                            <h3>Testing &amp; Calibration</h3>
+                            <p>Every zone tested for coverage, pressure, and timing. We fine-tune spray patterns and program your controller before we leave.</p>
+                        </div>
+                    </div>
+                    <div class="process-step reveal">
+                        <div class="step-marker">5</div>
+                        <div class="step-content">
+                            <h3>Ongoing Support</h3>
+                            <p>Seasonal maintenance, winterization, spring start-ups, and emergency repairs. We&rsquo;re in this for the long haul.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Service Area -->
+        <section class="area-section" id="areas">
+            <div class="container">
+                <div class="area-grid">
+                    <div class="reveal">
+                        <div class="section-label">Service Area</div>
+                        <h2 class="section-title">Serving Oakland County &amp; Beyond</h2>
+                        <p class="text-muted" style="margin-bottom:28px;">Based in Novi, we serve residential and commercial properties throughout Southeast Michigan.</p>
+                        <div class="area-list">
+                            <div class="area-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Novi
+                            </div>
+                            <div class="area-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Northville
+                            </div>
+                            <div class="area-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                South Lyon
+                            </div>
+                            <div class="area-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Wixom
+                            </div>
+                            <div class="area-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Farmington Hills
+                            </div>
+                            <div class="area-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                West Bloomfield
+                            </div>
+                            <div class="area-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Commerce Twp
+                            </div>
+                            <div class="area-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Milford
+                            </div>
+                            <div class="area-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Brighton
+                            </div>
+                            <div class="area-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Plymouth
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal">
+                        <div class="area-info" style="background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:36px;">
+                            <h3>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:8px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Headquarters
+                            </h3>
+                            <p class="text-muted" style="margin-top:8px;">22783 Heslip Dr<br>Novi, MI 48375</p>
+                            <div style="margin-top:24px;">
+                                <h3>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:8px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                    Call Us
+                                </h3>
+                                <p style="margin-top:8px;"><a href="tel:2489464696" style="color:var(--accent);font-weight:600;font-size:1.2rem;">(248) 946-4696</a></p>
+                            </div>
+                            <div style="margin-top:24px;">
+                                <h3>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:8px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                    Hours
+                                </h3>
+                                <p class="text-muted" style="margin-top:8px;">Mon &ndash; Fri: 7:00 AM &ndash; 6:00 PM<br>Sat: 8:00 AM &ndash; 2:00 PM<br>Sun: Closed<br><em style="font-size:0.85rem;">Emergency service available</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Testimonials -->
+        <section class="testimonials-section" id="testimonials">
+            <div class="container">
+                <div class="text-center reveal" style="text-align:center;">
+                    <div class="section-label">Reviews</div>
+                    <h2 class="section-title">What Our Clients Say</h2>
+                    <p class="section-subtitle">Real feedback from real Oakland County homeowners.</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card reveal">
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="testimonial-text">&ldquo;JRM redesigned our entire sprinkler system after the previous company left us with dead zones everywhere. Night and day difference. The lawn has never looked this good.&rdquo;</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">MR</div>
+                            <div>
+                                <div class="testimonial-name">Mark R.</div>
+                                <div class="testimonial-loc">Novi, MI</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal">
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="testimonial-text">&ldquo;They installed landscape lighting along our walkway and driveway. Looks absolutely stunning at night. Professional crew, clean work, and they stayed on budget.&rdquo;</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">SP</div>
+                            <div>
+                                <div class="testimonial-name">Sarah P.</div>
+                                <div class="testimonial-loc">Northville, MI</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal">
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="testimonial-text">&ldquo;Had a drainage nightmare in the backyard &mdash; standing water every time it rained. JRM came out, diagnosed the problem in 20 minutes, and fixed it in a day. Bone dry ever since.&rdquo;</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">DT</div>
+                            <div>
+                                <div class="testimonial-name">David T.</div>
+                                <div class="testimonial-loc">West Bloomfield, MI</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container reveal">
+                <h2>Ready to Program Your Rain?</h2>
+                <p>Get a free, no-obligation estimate for your irrigation, lighting, or drainage project. One call is all it takes.</p>
+                <a href="tel:2489464696" class="btn magnetic-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    Call (248) 946-4696
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact-section" id="contact">
+            <div class="container">
+                <div class="text-center reveal" style="text-align:center;">
+                    <div class="section-label">Contact</div>
+                    <h2 class="section-title">Get Your Free Estimate</h2>
+                    <p class="section-subtitle">Fill out the form and we&rsquo;ll be in touch within 24 hours. Or just call &mdash; we pick up.</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="reveal">
+                        <div class="contact-info-card">
+                            <div class="contact-info-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </div>
+                            <div>
+                                <div class="contact-info-label">Phone</div>
+                                <div class="contact-info-value"><a href="tel:2489464696" style="color:var(--accent);">(248) 946-4696</a></div>
+                            </div>
+                        </div>
+                        <div class="contact-info-card">
+                            <div class="contact-info-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <div>
+                                <div class="contact-info-label">Address</div>
+                                <div class="contact-info-value">22783 Heslip Dr, Novi, MI 48375</div>
+                            </div>
+                        </div>
+                        <div class="contact-info-card">
+                            <div class="contact-info-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <div>
+                                <div class="contact-info-label">Business Hours</div>
+                                <div class="contact-info-value">Mon&ndash;Fri 7AM&ndash;6PM &bull; Sat 8AM&ndash;2PM</div>
+                            </div>
+                        </div>
+                        <div class="contact-info-card">
+                            <div class="contact-info-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </div>
+                            <div>
+                                <div class="contact-info-label">Coverage</div>
+                                <div class="contact-info-value">Oakland County &amp; Southeast Michigan</div>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form reveal" onsubmit="event.preventDefault(); this.querySelector('.btn-primary').textContent='Message Sent!'; this.reset();">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" placeholder="John Smith" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone" placeholder="(248) 555-0123">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service...</option>
+                                <option value="sprinkler-install">New Sprinkler System</option>
+                                <option value="irrigation-design">Irrigation Design</option>
+                                <option value="drainage">Drainage Solutions</option>
+                                <option value="lighting">Landscape Lighting</option>
+                                <option value="winterize">Winterization</option>
+                                <option value="spring-start">Spring Start-Up</option>
+                                <option value="repair">Repair &amp; Maintenance</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Tell Us About Your Project</label>
+                            <textarea id="message" name="message" placeholder="Describe your property, what you need, and any specific concerns..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary magnetic-btn" style="width:100%;justify-content:center;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                            Send Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-logo" style="margin-bottom:4px;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                        <span>JRM Programming the Rain</span>
+                    </div>
+                    <p>Expert irrigation, sprinkler systems, landscape lighting, and drainage solutions for Oakland County and Southeast Michigan.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="#services">Sprinkler Systems</a>
+                    <a href="#services">Irrigation Design</a>
+                    <a href="#services">Drainage Solutions</a>
+                    <a href="#services">Landscape Lighting</a>
+                    <a href="#services">Winterization</a>
+                    <a href="#services">Repairs</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="#about">About Us</a>
+                    <a href="#process">Our Process</a>
+                    <a href="#areas">Service Areas</a>
+                    <a href="#testimonials">Reviews</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="tel:2489464696">(248) 946-4696</a>
+                    <a>22783 Heslip Dr</a>
+                    <a>Novi, MI 48375</a>
+                    <a>Mon&ndash;Fri 7A&ndash;6P</a>
+                    <a>Sat 8A&ndash;2P</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 JRM Programming the Rain. All rights reserved.</span>
+                <span>Website by <a href="https://kirkautomations.com" target="_blank" rel="noopener">Kirk Automations</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        'use strict';
+
+        // ===== LOADING SCREEN =====
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1200);
+        });
+
+        // ===== THEME SWITCHER =====
+        const root = document.documentElement;
+        const dots = document.querySelectorAll('.theme-dot');
+        const saved = localStorage.getItem('jrm-theme');
+        if (saved) {
+            root.setAttribute('data-theme', saved);
+            dots.forEach(d => {
+                const active = d.dataset.theme === saved;
+                d.classList.toggle('active', active);
+                d.setAttribute('aria-checked', active);
+            });
+        }
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const theme = dot.dataset.theme;
+                root.setAttribute('data-theme', theme);
+                localStorage.setItem('jrm-theme', theme);
+                dots.forEach(d => {
+                    const active = d.dataset.theme === theme;
+                    d.classList.toggle('active', active);
+                    d.setAttribute('aria-checked', active);
+                });
+            });
+            dot.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    dot.click();
+                }
+            });
+        });
+
+        // ===== CURSOR GLOW =====
+        const glow = document.getElementById('cursorGlow');
+        document.addEventListener('mousemove', e => {
+            glow.style.left = e.clientX + 'px';
+            glow.style.top = e.clientY + 'px';
+            glow.classList.add('active');
+        });
+        document.addEventListener('mouseleave', () => glow.classList.remove('active'));
+
+        // ===== PARTICLE SYSTEM =====
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        let w, h, particles = [], mouse = { x: -1000, y: -1000 };
+        const PARTICLE_COUNT = 60;
+
+        function resize() {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        function getParticleColor() {
+            const style = getComputedStyle(root);
+            return style.getPropertyValue('--particle-color').trim();
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * w;
+                this.y = Math.random() * h;
+                this.vx = (Math.random() - 0.5) * 0.6;
+                this.vy = (Math.random() - 0.5) * 0.6;
+                this.r = Math.random() * 2 + 1;
+            }
+            update() {
+                const dx = this.x - mouse.x;
+                const dy = this.y - mouse.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 100) {
+                    const force = (100 - dist) / 100;
+                    this.vx += (dx / dist) * force * 0.8;
+                    this.vy += (dy / dist) * force * 0.8;
+                }
+                this.vx *= 0.98;
+                this.vy *= 0.98;
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0) this.x = w;
+                if (this.x > w) this.x = 0;
+                if (this.y < 0) this.y = h;
+                if (this.y > h) this.y = 0;
+            }
+            draw(color) {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${color}, 0.6)`;
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+
+        function drawLines(color) {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(${color}, ${0.15 * (1 - dist / 120)})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, w, h);
+            const color = getParticleColor();
+            particles.forEach(p => { p.update(); p.draw(color); });
+            drawLines(color);
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        document.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+        document.addEventListener('touchmove', e => { mouse.x = e.touches[0].clientX; mouse.y = e.touches[0].clientY; });
+        document.addEventListener('mouseleave', () => { mouse.x = -1000; mouse.y = -1000; });
+
+        // ===== NAVBAR SCROLL =====
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // ===== SCROLL PROGRESS =====
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            document.getElementById('scrollProgress').style.width = progress + '%';
+        });
+
+        // ===== HAMBURGER =====
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            const expanded = hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', expanded);
+            document.body.style.overflow = expanded ? 'hidden' : '';
+        });
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                hamburger.click();
+            }
+        });
+
+        // ===== SCROLL REVEAL =====
+        const revealEls = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), i * 80);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach(el => observer.observe(el));
+
+        // Scroll fallback
+        function fallbackReveal() {
+            revealEls.forEach(el => {
+                if (el.classList.contains('visible')) return;
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 40) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', fallbackReveal);
+        fallbackReveal();
+
+        // ===== COUNTER ANIMATION =====
+        const counters = document.querySelectorAll('.counter');
+        const counterObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.target);
+                    let current = 0;
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    function count() {
+                        current += step;
+                        if (current >= target) {
+                            el.textContent = target;
+                        } else {
+                            el.textContent = Math.floor(current);
+                            requestAnimationFrame(count);
+                        }
+                    }
+                    count();
+                    counterObs.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        counters.forEach(c => counterObs.observe(c));
+
+        // ===== MAGNETIC BUTTONS =====
+        document.querySelectorAll('.magnetic-btn').forEach(btn => {
+            btn.addEventListener('mousemove', e => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = '';
+            });
+            btn.addEventListener('click', e => {
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                const rect = btn.getBoundingClientRect();
+                ripple.style.left = (e.clientX - rect.left) + 'px';
+                ripple.style.top = (e.clientY - rect.top) + 'px';
+                ripple.style.width = ripple.style.height = Math.max(rect.width, rect.height) + 'px';
+                btn.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // ===== CARD PARALLAX TILT =====
+        document.querySelectorAll('.service-card, .why-card, .testimonial-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                card.style.transform = `translateY(-6px) perspective(1000px) rotateX(${-y * 6}deg) rotateY(${x * 6}deg)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', e => {
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+    })();
+    </script>
+</body>
+</html>
